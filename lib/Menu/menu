@@ -1,0 +1,145 @@
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+
+class Menu extends StatelessWidget {
+  const Menu({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Drawer(
+      backgroundColor: const Color.fromARGB(255, 17, 93, 72),
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 100,
+          ),
+          Card(
+            // color: Colors.black,
+            elevation: 30,
+            child: ListTile(
+              onTap: () {
+                // Navigator.of(context)
+                //     .push(MaterialPageRoute(builder: (ctx) => About()));
+              },
+              tileColor: Colors.white,
+              leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.person,
+                  size: 30,
+                ),
+              ),
+              title: const Text(
+                'About',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+          const Divider(
+            color: Colors.transparent,
+          ),
+          Card(
+            elevation: 30,
+            child: ListTile(
+              onTap: () {},
+              tileColor: Colors.white,
+              leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.refresh,
+                  size: 30,
+                ),
+              ),
+              title: const Text(
+                'Reset',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+          const Divider(
+            color: Colors.transparent,
+          ),
+          Card(
+            elevation: 30,
+            child: ListTile(
+              onTap: () {
+                // Navigator.of(context)
+                //     .push(MaterialPageRoute(builder: (ctx) => Privacy()));
+              },
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              tileColor: Colors.white,
+              leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.privacy_tip,
+                  size: 30,
+                ),
+              ),
+              title: const Text(
+                'Privacy Policy',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+          const Divider(
+            color: Colors.transparent,
+          ),
+          Card(
+            elevation: 30,
+            child: ListTile(
+              onTap: () {
+                // Navigator.of(context)
+                //     .push(MaterialPageRoute(builder: (ctx) => Terms()));
+              },
+              tileColor: Colors.white,
+              leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.policy_sharp,
+                  size: 30,
+                ),
+              ),
+              title: const Text(
+                'Terms&conditions',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+          const Divider(
+            color: Colors.transparent,
+          ),
+          Card(
+            elevation: 30,
+            child: ListTile(
+              onTap: () {},
+              tileColor: Colors.white,
+              leading: IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.message,
+                  size: 30,
+                ),
+              ),
+              title: const Text(
+                'Feedback',
+                style: TextStyle(fontSize: 20),
+              ),
+            ),
+          ),
+          Image.asset(
+            'lib/assets/images/Lo_money-removebg-preview.png',
+            width: 80,
+            height: 90,
+          ),
+          Text(
+            'Wealth Manager',
+            style: GoogleFonts.acme(
+                fontSize: 20, color: Colors.white, fontWeight: FontWeight.w600),
+          ),
+        ],
+      ),
+    );
+  }
+}
