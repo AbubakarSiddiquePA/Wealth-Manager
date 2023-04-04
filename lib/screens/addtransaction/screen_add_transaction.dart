@@ -107,7 +107,7 @@ class _ScreenAddTransactionState extends State<ScreenAddTransaction> {
                           Icons.abc,
                           color: Color.fromARGB(255, 10, 92, 130),
                         ),
-                        hintText: 'Enter your Purpose',
+                        hintText: 'Enter  Notes',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -128,6 +128,7 @@ class _ScreenAddTransactionState extends State<ScreenAddTransaction> {
                       height: 20,
                     ),
                     TextFormField(
+                      maxLength: 10,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
                           return 'Please enter  Amount';
@@ -157,6 +158,11 @@ class _ScreenAddTransactionState extends State<ScreenAddTransaction> {
                           ),
                         ),
                       ),
+                      buildCounter: (BuildContext context,
+                              {int? currentLength,
+                              int? maxLength,
+                              bool? isFocused}) =>
+                          null,
                     ),
                   ],
                 ),

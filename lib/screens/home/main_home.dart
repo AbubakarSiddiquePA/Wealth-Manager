@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:money_manager_db/db/categorydb/category_db.dart';
 import 'package:money_manager_db/db/transactionsdb/transaction_db.dart';
 import 'package:money_manager_db/models/category/category_model.dart';
 import 'package:money_manager_db/screens/transactions/screen_transaction.dart';
 
 import 'package:money_manager_db/search/on_search_page.dart';
+import 'package:money_manager_db/searchnew/search_.dart';
 
 import '../../models/transactions/transaction_model.dart';
 
@@ -15,6 +17,8 @@ class BalanceCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    overViewListNotifier.value =
+        TransactionDb.instance.transactionListNotifier.value;
     return ValueListenableBuilder(
       valueListenable: TransactionDb.instance.transactionListNotifier,
       builder: (context, List<TransactionModel> value, _) {
@@ -49,10 +53,10 @@ class BalanceCard extends StatelessWidget {
                           color: Colors.black,
                         )),
                     Text("Total Balance",
-                        style: GoogleFonts.acme(fontSize: 25)),
+                        style: GoogleFonts.acme(fontSize: 20)),
                     Text(
                       "Rs. $totalBalance",
-                      style: GoogleFonts.acme(fontSize: 25),
+                      style: GoogleFonts.acme(fontSize: 20),
                     ),
                   ],
                 ),
@@ -105,10 +109,9 @@ class BalanceCard extends StatelessWidget {
                     Text("Transactions", style: GoogleFonts.acme(fontSize: 20)),
                     TextButton(
                         onPressed: () {
-                          if (context.mounted) {
-                            Navigator.of(context).push(
-                                MaterialPageRoute(builder: (ctx) => Search()));
-                          }
+                          CategoryDb.instance.getCategories();
+                          Navigator.of(context).push(
+                              MaterialPageRoute(builder: (ctx) => Search()));
                         },
                         child: Text(
                           'View All',
@@ -126,19 +129,19 @@ class BalanceCard extends StatelessWidget {
   }
 }
 
-List<TransactionDb> getIncomeTransactions(List<TransactionDb> transactions) {
-  return transactions
-      .where((transaction) => CategoryType.income == 'income')
-      .toList();
-}
+// List<TransactionDb> getIncomeTransactions(List<TransactionDb> transactions) {
+//   return transactions
+//       .where((transaction) => CategoryType.income == 'income')
+//       .toList();
+// }
 
-List<TransactionDb> getExpenseTransactions(List<TransactionDb> transactions) {
-  return transactions
-      .where((transaction) => CategoryType.expense == 'expense')
-      .toList();
-}
+// List<TransactionDb> getExpenseTransactions(List<TransactionDb> transactions) {
+//   return transactions
+//       .where((transaction) => CategoryType.expense == 'expense')
+//       .toList();
+// }
 
-List<TransactionDb> incomeTransactions =
-    getIncomeTransactions(incomeTransactions);
-List<TransactionDb> expenseTransactions =
-    getExpenseTransactions(incomeTransactions);
+// List<TransactionDb> incomeTransactions =
+//     getIncomeTransactions(incomeTransactions);
+// List<TransactionDb> expenseTransactions =
+//     getExpenseTransactions(incomeTransactions);

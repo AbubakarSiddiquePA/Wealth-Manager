@@ -53,7 +53,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.info_outline,
-                color: Colors.black,
+                color: Colors.pink,
               ),
             ),
             title: const Text('About'),
@@ -72,7 +72,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.feedback_outlined,
-                color: Colors.black,
+                color: Colors.green,
               ),
             ),
             title: const Text('Feedback'),
@@ -96,7 +96,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.share,
-                color: Colors.black,
+                color: Colors.blue,
               ),
             ),
             title: const Text('Share'),
@@ -112,7 +112,7 @@ class Menu extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10)),
               child: const Icon(
                 Icons.clear,
-                color: Colors.black,
+                color: Colors.red,
               ),
             ),
             title: const Text('Clear all'),

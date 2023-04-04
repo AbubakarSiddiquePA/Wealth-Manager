@@ -41,13 +41,12 @@ class IncomeCategoryListTest extends StatelessWidget {
                                 bottomLeft: Radius.circular(40),
                                 topRight: Radius.circular(60))),
                         child: ListTile(
-                          title: Expanded(
-                              child: Text(
+                          title: Text(
                             category.name,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: GoogleFonts.acme(fontSize: 20),
-                          )),
+                          ),
                           trailing: IconButton(
                             icon: const Icon(Icons.delete),
                             color: Colors.red,

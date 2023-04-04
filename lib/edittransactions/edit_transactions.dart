@@ -6,6 +6,8 @@ import 'package:money_manager_db/db/transactionsdb/transaction_db.dart';
 import 'package:money_manager_db/models/transactions/transaction_model.dart';
 import 'package:money_manager_db/screens/addtransaction/category_add_only_pop.dart';
 import 'package:money_manager_db/screens/addtransaction/screen_add_transaction.dart';
+import 'package:money_manager_db/search/on_search_page.dart';
+import 'package:money_manager_db/searchnew/search_.dart';
 
 import '../db/categorydb/category_db.dart';
 import '../models/category/category_model.dart';
@@ -118,7 +120,7 @@ class _EditTransactionsstate extends State<EditTransactions> {
                     TextFormField(
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your purpose';
+                          return 'Please fill Note';
                         }
                         return null;
                       },
@@ -128,7 +130,7 @@ class _EditTransactionsstate extends State<EditTransactions> {
                           Icons.abc,
                           color: Color.fromARGB(255, 10, 92, 130),
                         ),
-                        hintText: 'Enter your Purpose',
+                        hintText: 'Enter Notes',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -162,7 +164,7 @@ class _EditTransactionsstate extends State<EditTransactions> {
                           Icons.abc,
                           color: Color.fromARGB(255, 10, 92, 130),
                         ),
-                        hintText: 'Enter your Purpose',
+                        hintText: 'Enter Notes',
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(5),
                           borderSide: const BorderSide(
@@ -354,7 +356,9 @@ class _EditTransactionsstate extends State<EditTransactions> {
         category: _selectedCategorymodel!,
         id: widget.id);
     log(" edit funv${widget.id}");
-    await TransactionDb.instance.editTransaction(model, widget.id!);
+    TransactionDb.instance.editTransaction(model);
     await TransactionDb.instance.refresh();
+    searchfield.searchResult(searchQueryController.text);
+    showList.notifyListeners();
   }
 }

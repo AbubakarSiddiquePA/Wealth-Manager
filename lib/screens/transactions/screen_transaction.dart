@@ -10,6 +10,8 @@ import 'package:money_manager_db/edittransactions/edit_transactions.dart';
 import 'package:money_manager_db/models/category/category_model.dart';
 import 'package:money_manager_db/models/transactions/transaction_model.dart';
 
+import '../../searchnew/search_.dart';
+
 class ScreenTransaction extends StatefulWidget {
   const ScreenTransaction({super.key});
 
